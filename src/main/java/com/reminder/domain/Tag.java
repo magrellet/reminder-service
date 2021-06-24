@@ -1,22 +1,22 @@
 package com.reminder.domain;
 
-import lombok.*;
+
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
-
-import java.util.List;
 
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@Document(collection = "topic")
-public class Topic {
+@Document(collection = "tag")
+public class Tag {
     @Id
     private String id;
-    private String title;
-    private String quickNote;
-    private String details;
-    private List<Tag> tags;
+    private String name;
 }
