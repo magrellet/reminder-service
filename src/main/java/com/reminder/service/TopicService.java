@@ -15,4 +15,5 @@ public interface TopicService {
     List<Topic> findAllTopics();
 
 
+    void deleteTopic(Topic topic);
 }

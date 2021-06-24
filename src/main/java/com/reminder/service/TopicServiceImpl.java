@@ -9,12 +9,12 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class TopicServiceImpl implements TopicService{
+public class TopicServiceImpl implements TopicService {
 
     TopicRepository repo;
 
     @Autowired
-    public TopicServiceImpl(TopicRepository repo){
+    public TopicServiceImpl(TopicRepository repo) {
         this.repo = repo;
     }
 
@@ -25,11 +25,21 @@ public class TopicServiceImpl implements TopicService{
 
     @Override
     public void saveTopic(Topic topic) {
-        repo.save(topic);
+        try {
+            repo.save(topic);
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+
     }
 
     @Override
     public List<Topic> findAllTopics() {
         return repo.findAll();
+    }
+
+    @Override
+    public void deleteTopic(Topic topic) {
+        repo.delete(topic);
     }
 }
